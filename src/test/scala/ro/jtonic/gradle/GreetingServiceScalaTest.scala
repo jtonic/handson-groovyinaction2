@@ -13,7 +13,9 @@ class GreetingServiceScalaTest {
 
   @Test
   def testSimple() {
-    Assert.assertTrue(true)
+    val greet: String = GreetingServiceScalaImpl.greet("jtonic")
+    println (greet)
+    Assert.assertEquals("Hello jtonic. Greeting from Scala!", greet)
   }
 
 }
