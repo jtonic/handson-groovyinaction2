@@ -1,4 +1,5 @@
 apply plugin: 'groovy'
+apply plugin: 'scala'
 
 version = '0.1.0'
 
@@ -28,7 +29,8 @@ repositories {
 
 dependencies {
     groovy 'org.codehaus.groovy:groovy-all:2.1.5'
-    testCompile 'junit:junit:4.11'
+    compile 'org.scala-lang:scala-library:2.9.2'
+    testCompile 'junit:junit:4.11', 'org.scala-lang:scala-library:2.9.2'
 }
 
 
