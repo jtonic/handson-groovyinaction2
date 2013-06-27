@@ -1,0 +1,39 @@
+apply plugin: 'groovy'
+
+version = '0.1.0'
+
+archivesBasename = 'greeting'
+
+task helloWorld << {
+    println 'Hello Gradle world!!!'
+}
+
+task initProject(description: 'Initialize project directory structure.') << {
+      def defaultPackageName = 'ro.jtonic.gradle'
+    ['java', 'groovy', 'resources'].each  { src ->
+        def c2 = sourceSets.collect{it}."${src}".srcDirs
+        c2.each {dirs ->
+            dirs.each { dir ->
+                def newDir = new File(dir, defaultPackageName)
+                logger.info "Creating directory $newDir"
+                newDir.mkdirs()
+            }
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    groovy 'org.codehaus.groovy:groovy-all:2.1.5'
+    testCompile 'junit:junit:4.11'
+}
+
+
+
+
+
+
+
